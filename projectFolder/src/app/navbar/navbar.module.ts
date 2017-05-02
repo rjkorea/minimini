@@ -3,12 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { NavbarComponent } from './navbar/navbar.component';
-import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
     NavbarComponent
   ],
   imports: [
@@ -17,6 +15,6 @@ import { AppComponent } from './app.component';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [NavbarComponent]
 })
-export class AppModule { }
+export class NavbarModule { }
