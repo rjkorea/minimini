@@ -1,4 +1,9 @@
 <h1>
   {{title}}
 </h1>
-<navbar></navbar>
+<nav>
+  <a routerLink="/album" routerLinkActive="active">album</a>
+  <a routerLink="/artist" routerLinkActive="active">artist</a>
+  <a routerLink="/search" routerLinkActive="active">search</a>
+</nav>
+<router-outlet></router-outlet>
