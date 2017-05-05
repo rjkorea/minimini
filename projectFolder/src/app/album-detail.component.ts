@@ -1,11 +1,7 @@
-import 'rxjs/add/operator/switchMap';
-
 import { Component, OnInit } from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
 
-import { Album } from './album';
 import { AlbumService } from './album.service';
 
 @Component({
@@ -20,8 +16,7 @@ export class AlbumDetailComponent implements OnInit {
 
   constructor(
     private albumService: AlbumService,
-    private route: ActivatedRoute,
-    private location: Location
+    private route: ActivatedRoute
   ){}
 
   ngOnInit() {

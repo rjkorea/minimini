@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
+import { ActivatedRoute, Params } from '@angular/router';
 
-// import { Album } from './album';
 import { ArtistService } from './artist.service';
 
 @Component({
@@ -11,15 +11,21 @@ import { ArtistService } from './artist.service';
   providers: [ArtistService]
 })
 export class ArtistDetailComponent implements OnInit {
-  artists;
-  constructor(private artistService: ArtistService){}
+  show = false;
+  artist;
+  constructor(
+    private artistService: ArtistService,
+    private route: ActivatedRoute
+  ){}
 
   ngOnInit() {
-    // this.artistService.getArtistData()
-    // .then(data => {
-    //   this.artists = data.artists;
-    // })
-
+    this.route.params
+      .subscribe(data => this.artistService.getArtistOnly(data)
+        .then(artistData => {
+          console.log(artistData)
+          this.artist = artistData;
+          this.show = true;
+        }))
   }
 
 }
