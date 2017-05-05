@@ -1,28 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+
+import { APP_CONFIG, AppConfig } from './app.config';
 
 import { AppComponent } from './app.component';
 import { AlbumComponent } from './album.component';
 import { ArtistComponent } from './artist.component';
 import { SearchComponent } from './search.component';
+import { LoginComponent } from './login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumComponent,
     ArtistComponent,
-    SearchComponent
+    SearchComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    JsonpModule
   ],
-  providers: [],
+  providers: [{ provide: APP_CONFIG, useValue: AppConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

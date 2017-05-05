@@ -1,1 +1,8 @@
 <h3>album</h3>
+<div>
+  <div *ngFor="let album of albums">
+    <p>
+      {{album.name}} / {{album.release_date}}
+    </p>
+  </div>
+</div>

@@ -1,1 +1,9 @@
-<h3>artist</h3>
+<h2>artist</h2>
+<div>
+  <div *ngFor="let artist of artists">
+    <p>
+      <img src="{{artist.images[2].url}}" />
+      <span class="artist_name">{{artist.name}}</span>
+    </p>
+  </div>
+</div>
