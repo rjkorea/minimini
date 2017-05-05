@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 
 import { Album } from './album';
 import { Observable } from 'rxjs/Observable';
@@ -9,7 +9,21 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AlbumService {
 
-  constructor(private http: Http, private jsonp: Jsonp) {}
+  constructor(private http: Http) {}
+
+  getAlbumOnly(params) {
+    let url = `https://api.spotify.com/v1/albums/${params.id}?market=ES`
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/rdf+xml');
+    headers.append('Accept', 'application/sparql-results+json');
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http
+           .get(url, options)
+           .toPromise()
+           .then(response => response.json())
+           .catch();
+  }
 
   getAlbumData() {
     // let ID = 'a7c4071c374d4c3ebd33893c9166cfca';

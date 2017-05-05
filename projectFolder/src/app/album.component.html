@@ -1,8 +1,11 @@
 <h3>album</h3>
 <div>
   <div *ngFor="let album of albums">
-    <p>
-      {{album.name}} / {{album.release_date}}
-    </p>
+    <div class="album">
+      <p>
+        <img src="{{album.images[2].url}}">
+        <a [routerLink]="['/album-detail', album.id]">{{album.name}} / {{album.release_date}}</a>
+      </p>
+    </div>
   </div>
 </div>

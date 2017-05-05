@@ -1,0 +1,17 @@
+<div *ngIf="show">
+  
+  <p>
+    <img src="{{album.images[1].url}}"><br>
+    <span class="album_title">{{album.name}} Detail</span><br>
+    label : {{album.label}}<br>
+    artist : {{album.artists[0].name}}<br>
+    popularity: {{album.popularity}}<br>
+    release_date: {{album.release_date}}<br>
+    
+  </p>
+  <ul>
+      <li *ngFor="let song of album.tracks.items">
+        {{song.track_number}} : {{song.name}}
+      </li>
+    </ul>
+</div>

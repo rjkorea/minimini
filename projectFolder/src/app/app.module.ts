@@ -11,6 +11,8 @@ import { AlbumComponent } from './album.component';
 import { ArtistComponent } from './artist.component';
 import { SearchComponent } from './search.component';
 import { LoginComponent } from './login.component';
+import { AlbumDetailComponent } from './album-detail.component';
+import { ArtistDetailComponent } from './artist-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LoginComponent } from './login.component';
     AlbumComponent,
     ArtistComponent,
     SearchComponent,
-    LoginComponent
+    LoginComponent,
+    AlbumDetailComponent,
+    ArtistDetailComponent
   ],
   imports: [
     BrowserModule,
