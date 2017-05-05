@@ -1,0 +1,36 @@
+nav {
+  background-color: black;
+  height: 50px;
+  margin: 0px;
+  text-align: center;
+}
+
+nav a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  width: 163px;
+  line-height: 50px;
+  transition: 0.3s;
+  text-align: center;
+  margin-left: 0px;
+}
+
+nav a:hover {
+  background-color: white;
+  color: black;
+  width: 163px;
+  
+}
+
+.container {
+  margin: 0 auto;
+  width: 840px;
+}
+
+@media screen and (max-width: 414px) {
+  .container {
+    margin: 0 auto;
+    width: 414px;
+  }
+}

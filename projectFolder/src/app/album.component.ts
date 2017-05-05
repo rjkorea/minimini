@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
 
-import { Album } from './album';
 import { AlbumService } from './album.service';
 
 @Component({
@@ -19,7 +18,6 @@ export class AlbumComponent implements OnInit {
       .then(data => {
         this.albums = data.albums;
       })
-
   }
 
 }

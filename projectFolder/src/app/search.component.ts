@@ -24,6 +24,7 @@ export class SearchComponent implements OnInit{
       .then(data => {
         console.log(data)
         this.searchData = data;
+        this.show = true;
       })
   }
 }
