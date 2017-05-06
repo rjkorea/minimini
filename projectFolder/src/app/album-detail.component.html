@@ -9,6 +9,7 @@
     release_date: {{album.release_date}}<br>
     
   </p>
+    <span class="album_title">tracks</span>
   <ul>
       <li *ngFor="let song of album.tracks.items">
         {{song.track_number}} : {{song.name}}
