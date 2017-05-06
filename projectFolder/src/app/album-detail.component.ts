@@ -23,7 +23,6 @@ export class AlbumDetailComponent implements OnInit {
     this.route.params
       .subscribe(data => this.albumService.getAlbumOnly(data)
         .then(albumData => {
-          console.log(albumData)
           this.album = albumData
           this.show = true;
         }))

@@ -16,13 +16,11 @@ export class SearchComponent implements OnInit{
   ){}
 
   ngOnInit() {
-   
   }
 
   search(word) {
     this.searchService.getSearchData(word)
       .then(data => {
-        console.log(data)
         this.searchData = data;
         this.show = true;
       })

@@ -3,12 +3,11 @@
   {{title}}
 </h1>
 
-<nav>
-  <a href="#">community</a>
-  <a href="#">home</a>
+<nav class="topnav" id="myTopnav">
   <a routerLink="/album" routerLinkActive="active">album</a>
   <a routerLink="/artist" routerLinkActive="active">artist</a>
   <a routerLink="/search" routerLinkActive="active">search</a>
-</nav>
+  <a href="javascript:void(0);" style="font-size: 15px;" class="icon" (click)="myFunction()">&#9776;</a>
+  </nav>
 <router-outlet></router-outlet>
 </div>

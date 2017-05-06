@@ -1,3 +1,17 @@
 a {
   text-decoration: none;
+  color: black;
+}
+
+.album_list {
+  color: black;
+}
+
+.album_list img {
+  margin-right: 30px;
+  width: 100px;
+}
+
+@media and screen (max-width: 600px) {
+
 }

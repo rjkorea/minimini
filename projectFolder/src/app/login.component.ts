@@ -10,11 +10,10 @@ import { LoginService } from './login.service';
   providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
-  albums;
+  
   constructor(private loginService: LoginService){}
 
   ngOnInit() {
-    // this.loginService.getAuthData()
 
   }
 

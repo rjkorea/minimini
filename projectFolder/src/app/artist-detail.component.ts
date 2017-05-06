@@ -22,7 +22,6 @@ export class ArtistDetailComponent implements OnInit {
     this.route.params
       .subscribe(data => this.artistService.getArtistOnly(data)
         .then(artistData => {
-          console.log(artistData)
           this.artist = artistData;
           this.show = true;
         }))
