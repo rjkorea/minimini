@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 
-import { Album } from './album';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
