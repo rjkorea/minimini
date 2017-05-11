@@ -20,3 +20,27 @@ input[type=text] {
   margin-right: 30px;
   margin-bottom: 20px;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.paging {
+  display: block;
+  text-align: center;
+  list-style-type: none;
+  margin: 0 auto;
+}
+
+.paging li {
+  display: inline-block;
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+.paging_button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}

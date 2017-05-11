@@ -17,8 +17,7 @@ export class ArtistComponent implements OnInit {
     this.artistService.getArtistData()
     .then(data => {
       this.artists = data.artists;
-    })
-
+    });
   }
 
 }

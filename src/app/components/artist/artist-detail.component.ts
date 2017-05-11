@@ -24,7 +24,7 @@ export class ArtistDetailComponent implements OnInit {
         .then(artistData => {
           this.artist = artistData;
           this.show = true;
-        }))
+        }));
   }
 
 }

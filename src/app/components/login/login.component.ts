@@ -13,8 +13,6 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginService){}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 }

@@ -9,8 +9,7 @@ export class NavbarComponent implements OnInit{
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   myFunction() {
     let x = document.getElementById('myTopnav');

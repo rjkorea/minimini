@@ -1,11 +1,16 @@
 <h3>Search</h3>
 <input type="text" #searchBox id="search-box" (keyup.enter)="search(searchBox.value)" placeholder="track or artist search" />
 <div *ngIf="show">
-  <h2>search Result about {{searchBox.value}}</h2>
+  <h2>{{total}} search Result about {{searchBox.value}}</h2>
   <div *ngFor="let data of searchData.artists.items" class="search_list">
     <img src="{{data.images[0].url}}" *ngIf="data.images.length">
     artist : {{data.name}}<br>
     popularity : {{data.popularity}}<br>
     genres : <span class="" *ngFor="let genre of data.genres">{{genre}}</span>
   </div>
+  <ul *ngIf="show" class="paging">
+    <li *ngIf="prev" class="paging_button" (click)="prevPageClick(prev)">prev</li>
+    <li>{{curPage}} of {{totalPage}}</li>
+    <li *ngIf="next" class="paging_button" (click)="nextPageClick(next)">next</li>
+  </ul>
 </div>

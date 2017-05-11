@@ -9,7 +9,5 @@ export class LoginService {
 
   constructor(private http: Http) {}
 
-  getAuthData() {
-
-  }
+  getAuthData() {}
 }
