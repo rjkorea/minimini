@@ -1,12 +1,5 @@
 <div class="container">
-<h1>
-  {{title}}
-</h1>
-<nav class="topnav" id="myTopnav">
-  <a routerLink="/album" routerLinkActive="active">album</a>
-  <a routerLink="/artist" routerLinkActive="active">artist</a>
-  <a routerLink="/search" routerLinkActive="active">search</a>
-  <a href="javascript:void(0);" style="font-size: 15px;" class="icon" (click)="myFunction()">&#9776;</a>
-  </nav>
-<router-outlet></router-outlet>
+  <h1>{{title}}</h1>
+  <navbar></navbar>
+  <router-outlet></router-outlet>
 </div>
