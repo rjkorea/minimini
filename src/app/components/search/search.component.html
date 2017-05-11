@@ -10,7 +10,7 @@
   </div>
   <ul *ngIf="show" class="paging">
     <li *ngIf="prev" class="paging_button" (click)="prevPageClick(prev)">prev</li>
-    <li>{{curPage}} of {{totalPage}}</li>
+    <li>{{curPage}} of {{total}}</li>
     <li *ngIf="next" class="paging_button" (click)="nextPageClick(next)">next</li>
   </ul>
 </div>

@@ -14,7 +14,6 @@ export class SearchComponent implements OnInit{
   curPage = 0;
   pageSize = 5;
   total = 0;
-  totalPage = 0;
   prev;
   next;
   constructor(
@@ -29,7 +28,6 @@ export class SearchComponent implements OnInit{
         this.searchData = data;
         this.show = true;
         this.total = data.artists.total;
-        this.totalPage = Math.ceil(this.total / 20);
         this.prev = data.artists.previous;
         this.next = data.artists.next;
         this.curPage = data.artists.offset;
@@ -42,7 +40,6 @@ export class SearchComponent implements OnInit{
         this.searchData = data;
         this.show = true;
         this.total = data.artists.total;
-        this.totalPage = Math.ceil(this.total / 20);
         this.prev = data.artists.previous;
         this.next = data.artists.next;
         this.curPage = data.artists.offset;
@@ -55,7 +52,6 @@ export class SearchComponent implements OnInit{
         this.searchData = data;
         this.show = true;
         this.total = data.artists.total;
-        this.totalPage = Math.ceil(this.total / 20);
         this.prev = data.artists.previous;
         this.next = data.artists.next;
         this.curPage = data.artists.offset;
