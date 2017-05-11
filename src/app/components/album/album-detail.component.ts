@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { AlbumService } from './album.service';
+import { AlbumService } from '../../services/album.service';
 
 @Component({
   selector: 'album-detail',

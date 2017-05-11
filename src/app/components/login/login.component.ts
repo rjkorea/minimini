@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
 
-import { LoginService } from './login.service';
+import { LoginService } from '../../services//login.service';
 
 @Component({
   selector: 'login',
@@ -10,7 +10,7 @@ import { LoginService } from './login.service';
   providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
-  
+
   constructor(private loginService: LoginService){}
 
   ngOnInit() {

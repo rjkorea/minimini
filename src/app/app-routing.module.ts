@@ -1,12 +1,12 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AlbumComponent } from './album.component';
-import { ArtistComponent } from './artist.component';
-import { SearchComponent } from './search.component';
-import { LoginComponent } from './login.component';
-import { AlbumDetailComponent } from './album-detail.component';
-import { ArtistDetailComponent } from './artist-detail.component';
+import { AlbumComponent } from './components/album/album.component';
+import { ArtistComponent } from './components/artist/artist.component';
+import { SearchComponent } from './components/search/search.component';
+import { LoginComponent } from './components/login/login.component';
+import { AlbumDetailComponent } from './components/album/album-detail.component';
+import { ArtistDetailComponent } from './components/artist/artist-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
