@@ -13,6 +13,7 @@ import { SearchComponent } from './components/search/search.component';
 import { LoginComponent } from './components/login/login.component';
 import { AlbumDetailComponent } from './components/album/album-detail.component';
 import { ArtistDetailComponent } from './components/artist/artist-detail.component';
+import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ArtistDetailComponent } from './components/artist/artist-detail.compone
     SearchComponent,
     LoginComponent,
     AlbumDetailComponent,
-    ArtistDetailComponent
+    ArtistDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
