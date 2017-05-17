@@ -9,11 +9,11 @@ import { SearchService } from '../../services/search.service';
 })
 
 export class SearchComponent implements OnInit{
-  show = false;
+  show: boolean = false;
   searchData;
-  curPage = 0;
-  pageSize = 5;
-  total = 0;
+  curPage: number = 0;
+  pageSize: number = 5;
+  total: number = 0;
   prev;
   next;
   constructor(
@@ -22,39 +22,27 @@ export class SearchComponent implements OnInit{
 
   ngOnInit() {}
 
+  insertData(data) {
+    this.searchData = data;
+    this.show = true;
+    this.total = data.artists.total;
+    this.prev = data.artists.previous;
+    this.next = data.artists.next;
+    this.curPage = data.artists.offset;
+  }
+
   search(word) {
     this.searchService.getSearchData(word)
-      .then(data => {
-        this.searchData = data;
-        this.show = true;
-        this.total = data.artists.total;
-        this.prev = data.artists.previous;
-        this.next = data.artists.next;
-        this.curPage = data.artists.offset;
-      });
+      .then(data => this.insertData(data));
   }
 
   nextPageClick(url) {
     this.searchService.getNextData(url)
-      .then(data => {
-        this.searchData = data;
-        this.show = true;
-        this.total = data.artists.total;
-        this.prev = data.artists.previous;
-        this.next = data.artists.next;
-        this.curPage = data.artists.offset;
-      });
+      .then(data => this.insertData(data));
   }
 
   prevPageClick(url) {
     this.searchService.getPrevData(url)
-      .then(data => {
-        this.searchData = data;
-        this.show = true;
-        this.total = data.artists.total;
-        this.prev = data.artists.previous;
-        this.next = data.artists.next;
-        this.curPage = data.artists.offset;
-      });
+      .then(data => this.insertData(data));
   }
 }

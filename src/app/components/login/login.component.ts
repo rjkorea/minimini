@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
 
-import { LoginService } from '../../services//login.service';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'login',
@@ -15,4 +15,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
+  getLogin() {
+    this.loginService.getAuthData()
+      .then(data => data)
+  }
 }
