@@ -1,7 +1,7 @@
 <div class="search_group">
   <h3>MINIMINI MUSIC : )</h3>
   <input type="text" #searchBox id="search-box" (keyup.enter)="search(searchBox.value)" placeholder="SEARCH" />
-  <div *ngIf="show">
+  <div *ngIf="show" when-scrolled>
     <h2>{{total}} search Result about {{searchBox.value}}</h2>
     <div *ngFor="let data of searchData.artists.items" class="search_list">
       <img src="{{data.images[0].url}}" *ngIf="data.images.length">

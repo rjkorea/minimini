@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { APP_CONFIG, AppConfig } from './app.config';
@@ -16,6 +16,8 @@ import { AlbumDetailComponent } from './components/album/album-detail.component'
 import { ArtistDetailComponent } from './components/artist/artist-detail.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 
+import { whenScrolledDirective } from './components/search/search.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,14 +28,14 @@ import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.co
     LoginComponent,
     AlbumDetailComponent,
     ArtistDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    whenScrolledDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-    JsonpModule
+    AppRoutingModule
   ],
   providers: [{ provide: APP_CONFIG, useValue: AppConfig }],
   bootstrap: [AppComponent]

@@ -16,6 +16,7 @@ export class AlbumComponent implements OnInit {
   ngOnInit() {
     this.albumService.getAlbumData()
       .then(data => {
+        console.log(data)
         this.albums = data.albums;
       })
   }

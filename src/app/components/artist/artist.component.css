@@ -5,7 +5,7 @@
 }
 
 .artist_list img {
-  margin-right: 62px;
+  margin-right: 45px;
   width: 138px;
   box-shadow: 10px 9px 40px #888;
 }
@@ -32,7 +32,7 @@ a {
 
   .artist_list img {
     width: 88px;
-    margin-right: 20px;
+    margin-right: 18px;
   }
 
   a {
