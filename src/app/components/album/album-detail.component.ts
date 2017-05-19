@@ -11,8 +11,8 @@ import { AlbumService } from '../../services/album.service';
   providers: [AlbumService]
 })
 export class AlbumDetailComponent implements OnInit {
-  show = false;
-  album;
+  private show: boolean = false;
+  private album;
 
   constructor(
     private albumService: AlbumService,
@@ -25,8 +25,6 @@ export class AlbumDetailComponent implements OnInit {
         .then(albumData => {
           this.album = albumData
           this.show = true;
-        }))
-
+        }));
   }
-
 }

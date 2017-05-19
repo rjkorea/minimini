@@ -11,8 +11,8 @@ import { ArtistService } from '../../services/artist.service';
   providers: [ArtistService]
 })
 export class ArtistDetailComponent implements OnInit {
-  show = false;
-  artist;
+  private show: boolean = false;
+  private artist: any[];
   constructor(
     private artistService: ArtistService,
     private route: ActivatedRoute
@@ -26,5 +26,4 @@ export class ArtistDetailComponent implements OnInit {
           this.show = true;
         }));
   }
-
 }

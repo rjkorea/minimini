@@ -9,10 +9,10 @@ import { AlbumService } from '../../services//album.service';
   providers: [AlbumService]
 })
 export class AlbumComponent implements OnInit {
-  albums;
-  counter: number = 0;
-  items: any;
-  loader: boolean = false;
+  private albums;
+  private counter: number = 0;
+  private items: any[];
+  private loader: boolean = false;
 
   constructor(private albumService: AlbumService){}
 
@@ -24,7 +24,7 @@ export class AlbumComponent implements OnInit {
       });
   }
 
-  onScroll($event: Event) {
+  onScroll($event: Event): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       let that = this;
       if(this.counter < this.albums.length) {

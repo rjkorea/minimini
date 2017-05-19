@@ -9,10 +9,10 @@ import { ArtistService } from '../../services/artist.service';
   providers: [ArtistService]
 })
 export class ArtistComponent implements OnInit {
-  artists;
-  counter: number = 0;
-  loader: boolean = false;
-  items: any;
+  private artists: any[];
+  private counter: number = 0;
+  private loader: boolean = false;
+  private items: any[];
 
   constructor(private artistService: ArtistService){}
 
@@ -24,7 +24,7 @@ export class ArtistComponent implements OnInit {
     });
   }
 
-  onScroll($event: Event) {
+  onScroll($event: Event): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       let that = this;
       if(this.counter < this.artists.length) {console.log(1)
@@ -40,5 +40,4 @@ export class ArtistComponent implements OnInit {
       } 
     }
   }
-
 }

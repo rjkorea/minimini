@@ -9,21 +9,19 @@ import { SearchService } from '../../services/search.service';
 })
 
 export class SearchComponent implements OnInit{
-  show: boolean = false;
-  searchData;
-  curPage: number = 0;
-  pageSize: number = 5;
-  total: number = 0;
-  prev;
-  prevMore;
-  next;
-  nextMore;
-  items: any;
-  counter: number = 0;
-  length: number = 0;
-  inputWord: string = '';
-  loader: boolean = true;
-  that = this;
+  private show: boolean = false;
+  private searchData: any[];
+  private curPage: number = 0;
+  private pageSize: number = 5;
+  private total: number = 0;
+  private prev: string;
+  private next: string;
+  private items: any[];
+  private counter: number = 0;
+  private length: number = 0;
+  private inputWord: string = '';
+  private loader: boolean = true;
+  private that = this;
 
   constructor(
     private searchService: SearchService
@@ -31,7 +29,7 @@ export class SearchComponent implements OnInit{
 
   ngOnInit() {}
 
-  onScroll($event: Event) {
+  onScroll($event: Event): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       let that = this;
       if(this.counter < this.searchData.length) {
@@ -48,7 +46,7 @@ export class SearchComponent implements OnInit{
     }
   }
 
-  insertData(data) {
+  insertData(data: any): void {
     let artist = data.artists;
     this.searchData = artist.items;
     this.show = true;
@@ -60,31 +58,31 @@ export class SearchComponent implements OnInit{
     this.counter = 5;
   }
 
-  search(word) {
+  search(word: string): void {
     this.inputWord = word;
     this.searchService.getSearchData(word)
       .then(data => this.insertData(data));
   }
 
-  nextPageClick(url) {
+  nextPageClick(url: string): void {
     window.scrollTo(0, 0);
     this.searchService.getNextData(url)
       .then(data => this.insertData(data));
   }
 
-  nextPageMore(offset) {
+  nextPageMore(offset: number): void {
     window.scrollTo(0, 0);
     this.searchService.getNextMore(offset)
       .then(data => this.insertData(data));
   }
 
-  prevPageClick(url) {
+  prevPageClick(url: string): void {
     window.scrollTo(0, 0);
     this.searchService.getPrevData(url)
       .then(data => this.insertData(data));
   }
 
-  prevPageMore(offset) {
+  prevPageMore(offset: number): void {
     window.scrollTo(0, 0);
     this.searchService.getPrevMore(offset)
       .then(data => this.insertData(data));
