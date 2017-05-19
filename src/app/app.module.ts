@@ -16,8 +16,6 @@ import { AlbumDetailComponent } from './components/album/album-detail.component'
 import { ArtistDetailComponent } from './components/artist/artist-detail.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 
-import { whenScrolledDirective } from './components/search/search.directive';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +26,7 @@ import { whenScrolledDirective } from './components/search/search.directive';
     LoginComponent,
     AlbumDetailComponent,
     ArtistDetailComponent,
-    PageNotFoundComponent,
-    whenScrolledDirective
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

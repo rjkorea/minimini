@@ -20,7 +20,7 @@ export class AlbumService {
   }
 
   getAlbumData() {
-    let url = "https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc&market=ES";
+    let url = "https://api.spotify.com/v1/search?type=album&q=rock&offset=20&limit=50";
     return this.http
                .get(url)
                .toPromise()

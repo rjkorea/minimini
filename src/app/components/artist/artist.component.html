@@ -1,9 +1,14 @@
 <h3>ARTIST</h3>
-  <div *ngFor="let artist of artists" class="artist_list">
+<div (window:scroll)="onScroll($event)">
+  <div *ngFor="let artist of items" class="artist_list">
     <p>
-      <img src="{{artist.images[2].url}}" />
+      <img src="{{artist.images[2].url}}" *ngIf="artist.images.length"/>
       <a [routerLink]="['/artist-detail', artist.id]">
         {{artist.name}}
       </a>
     </p>
   </div>
+</div>
+<div class="loader_box_two">
+  <div class="loader_two" *ngIf="loader">Loading...</div>
+</div>

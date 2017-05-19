@@ -11,14 +11,35 @@ import { AlbumService } from '../../services//album.service';
 })
 export class AlbumComponent implements OnInit {
   albums;
+  counter: number = 0;
+  items: any;
+  loader: boolean = false;
+
   constructor(private albumService: AlbumService){}
 
   ngOnInit() {
     this.albumService.getAlbumData()
       .then(data => {
-        console.log(data)
-        this.albums = data.albums;
-      })
+        this.albums = data.albums.items;
+        this.items = this.albums.slice(0, 5);
+      });
+  }
+
+  onScroll($event: Event) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      let that = this;
+      if(this.counter < this.albums.length) {
+        this.loader = true;
+        setTimeout(() => {
+          let getData = that.albums.slice(that.counter, that.counter + 5);
+          for(let i = 0; i < getData.length; i++){
+            that.items.push(getData[i]);
+          }
+          that.counter += 5;
+          that.loader = false;
+        }, 1000);
+      } 
+    }
   }
 
 }

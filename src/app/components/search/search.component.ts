@@ -1,12 +1,10 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { SearchService } from '../../services/search.service';
-// import { whenScrolledDirective } from './search.directive';
 
 @Component({
   selector: 'search',
   templateUrl: './search.component.html',
   styleUrls: [ './search.component.css' ],
-  // directives: [ whenScrolledDirective ],
   providers: [ SearchService ]
 })
 
@@ -17,50 +15,79 @@ export class SearchComponent implements OnInit{
   pageSize: number = 5;
   total: number = 0;
   prev;
+  prevMore;
   next;
-  items: any = [];
+  nextMore;
+  items: any;
+  counter: number = 0;
+  length: number = 0;
+  inputWord: string = '';
+  loader: boolean = true;
+  that = this;
 
   constructor(
     private searchService: SearchService
   ){}
 
-  @HostListener('scroll', ['$event']) private onScroll($event:Event):void {
-    console.log($event.srcElement.scrollLeft, $event.srcElement.scrollTop);
-  }
-
   ngOnInit() {}
 
-  // loadMore() {
-  //   let count = 0;
-  //   let length = this.searchData.artists.items.slice(count, count + 5);
-  //   for(let i = 0; i < length; i++){
-  //     this.items.push(this.searchData.artists.items[i]);
-  //   }
-  //   count += 5;
-  // }
+  onScroll($event: Event) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      let that = this;
+      if(this.counter < this.searchData.length) {
+        this.loader = true;
+        setTimeout(() => {
+          let getData = that.searchData.slice(that.counter, that.counter + 5);
+          for(let i = 0; i < getData.length; i++){
+            that.items.push(getData[i]);
+          }
+          that.counter += 5;
+          that.loader = false;
+        }, 1000);
+      } 
+    }
+  }
 
   insertData(data) {
-    this.searchData = data;
+    let artist = data.artists;
+    this.searchData = artist.items;
     this.show = true;
-    this.total = data.artists.total;
-    this.prev = data.artists.previous;
-    this.next = data.artists.next;
-    this.curPage = data.artists.offset;
-    // this.loadMore();
+    this.total = artist.total;
+    this.prev = artist.previous;
+    this.next = artist.next;
+    this.curPage = artist.offset;
+    this.items = artist.items.slice(0, 5);
+    this.counter = 5;
+    console.log(this.next)
   }
 
   search(word) {
+    this.inputWord = word;
     this.searchService.getSearchData(word)
       .then(data => this.insertData(data));
   }
 
   nextPageClick(url) {
+    window.scrollTo(0, 0);
     this.searchService.getNextData(url)
       .then(data => this.insertData(data));
   }
 
+  nextPageMore(offset) {
+    window.scrollTo(0, 0);
+    this.searchService.getNextMore(offset)
+      .then(data => this.insertData(data));
+  }
+
   prevPageClick(url) {
+    window.scrollTo(0, 0);
     this.searchService.getPrevData(url)
+      .then(data => this.insertData(data));
+  }
+
+  prevPageMore(offset) {
+    window.scrollTo(0, 0);
+    this.searchService.getPrevMore(offset)
       .then(data => this.insertData(data));
   }
 }

@@ -1,10 +1,12 @@
-<div *ngIf="show">
+<div *ngIf="show" class="detail_container">
 <h3>{{artist.name}} Detail</h3>
-  <img src="{{artist.images[2].url}}">
-  <p>
-    {{artist.name}} Detail<br>
-    followers : {{artist.followers.total}}<br>
-    popularity : {{artist.popularity}}<br>
-    genres : <span *ngFor="let genre of artist.genres">{{genre}} </span>
-  </p>
+  <div class="artist_frame">
+    <img src="{{artist.images[2].url}}">
+    <p>
+      {{artist.name}} Detail<br>
+      followers : {{artist.followers.total}}<br>
+      popularity : {{artist.popularity}}<br>
+      genres : <span *ngFor="let genre of artist.genres">{{genre}} </span>
+    </p>
+  </div>
 </div>
