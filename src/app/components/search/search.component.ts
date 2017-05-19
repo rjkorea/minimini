@@ -58,7 +58,6 @@ export class SearchComponent implements OnInit{
     this.curPage = artist.offset;
     this.items = artist.items.slice(0, 5);
     this.counter = 5;
-    console.log(this.next)
   }
 
   search(word) {
