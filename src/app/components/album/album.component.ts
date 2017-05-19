@@ -14,7 +14,7 @@ export class AlbumComponent implements OnInit {
   private items: any[];
   private loader: boolean = false;
 
-  constructor(private albumService: AlbumService){}
+  constructor(private albumService: AlbumService) {}
 
   ngOnInit() {
     this.albumService.getAlbumData()
@@ -25,13 +25,13 @@ export class AlbumComponent implements OnInit {
   }
 
   onScroll($event: Event): void {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       let that = this;
       if(this.counter < this.albums.length) {
         this.loader = true;
         setTimeout(() => {
           let getData = that.albums.slice(that.counter, that.counter + 5);
-          for(let i = 0; i < getData.length; i++){
+          for(let i = 0; i < getData.length; i++) {
             that.items.push(getData[i]);
           }
           that.counter += 5;
@@ -40,5 +40,4 @@ export class AlbumComponent implements OnInit {
       } 
     }
   }
-
 }

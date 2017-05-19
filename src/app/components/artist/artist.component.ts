@@ -14,7 +14,7 @@ export class ArtistComponent implements OnInit {
   private loader: boolean = false;
   private items: any[];
 
-  constructor(private artistService: ArtistService){}
+  constructor(private artistService: ArtistService) {}
 
   ngOnInit() {
     this.artistService.getArtistData()
@@ -25,13 +25,13 @@ export class ArtistComponent implements OnInit {
   }
 
   onScroll($event: Event): void {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       let that = this;
-      if(this.counter < this.artists.length) {console.log(1)
+      if(this.counter < this.artists.length) {
         this.loader = true;
         setTimeout(() => {
           let getData = that.artists.slice(that.counter, that.counter + 5);
-          for(let i = 0; i < getData.length; i++){
+          for(let i = 0; i < getData.length; i++) {
             that.items.push(getData[i]);
           }
           that.counter += 5;

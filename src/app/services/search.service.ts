@@ -6,57 +6,46 @@ export class SearchService {
   
   constructor(private http: Http) {}
 
-  getSearchData(word) {
+  getSearchData(word: string) {
     let url: string = `https://api.spotify.com/v1/search/?q=${word}&type=track,artist&market=US`;
     return this.http
            .get(url)
            .toPromise()
-           .then(response => {
-             return response.json();
-           })
+           .then(response => response.json())
            .catch();
   }
 
-  getNextData(url) {
+  getNextData(url: string) {
     return this.http
            .get(url)
            .toPromise()
-           .then(response => {
-             return response.json();
-           });
+           .then(response => response.json());
   }
 
-  getPrevData(url) {
+  getPrevData(url: string) {
     return this.http
            .get(url)
            .toPromise()
-           .then(response => {
-             return response.json();
-           });
+           .then(response => response.json());
   }
 
-  getNextMore(offset) {
+  getNextMore(offset: number) {
     let count: number = offset + 100;
     let uri: string = `https://api.spotify.com/v1/search?query=m&type=artist&market=US&offset=${count}&limit=20`;
     
-    console.log(uri);
     return this.http
            .get(uri)
            .toPromise()
-           .then(response => {
-             return response.json();
-           });
+           .then(response => response.json());
   }
 
-  getPrevMore(offset) {console.log(offset)
+  getPrevMore(offset: number) {
     let count: number = offset - 100;
     let uri: string = `https://api.spotify.com/v1/search?query=m&type=artist&market=US&offset=${count}&limit=20`;
     
     return this.http
            .get(uri)
            .toPromise()
-           .then(response => {
-             return response.json();
-           });
+           .then(response => response.json());
   }
 }

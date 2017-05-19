@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable }        from 'rxjs/Observable';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { AlbumService } from '../../services/album.service';
@@ -17,13 +16,13 @@ export class AlbumDetailComponent implements OnInit {
   constructor(
     private albumService: AlbumService,
     private route: ActivatedRoute
-  ){}
+  ) {}
 
   ngOnInit() {
     this.route.params
       .subscribe(data => this.albumService.getAlbumOnly(data)
         .then(albumData => {
-          this.album = albumData
+          this.album = albumData;
           this.show = true;
         }));
   }

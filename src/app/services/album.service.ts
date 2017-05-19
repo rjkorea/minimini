@@ -9,7 +9,7 @@ export class AlbumService {
   constructor(private http: Http) {}
 
   getAlbumOnly(params) {
-    let url = `https://api.spotify.com/v1/albums/${params.id}?market=ES`;
+    let url: string = `https://api.spotify.com/v1/albums/${params.id}?market=ES`;
     return this.http
            .get(url)
            .toPromise()
@@ -18,7 +18,7 @@ export class AlbumService {
   }
 
   getAlbumData() {
-    let url = "https://api.spotify.com/v1/search?type=album&q=rock&offset=20&limit=50";
+    let url: string = "https://api.spotify.com/v1/search?type=album&q=rock&offset=20&limit=50";
     return this.http
                .get(url)
                .toPromise()

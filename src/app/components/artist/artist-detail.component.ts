@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable }        from 'rxjs/Observable';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { ArtistService } from '../../services/artist.service';
@@ -16,7 +15,7 @@ export class ArtistDetailComponent implements OnInit {
   constructor(
     private artistService: ArtistService,
     private route: ActivatedRoute
-  ){}
+  ) {}
 
   ngOnInit() {
     this.route.params
