@@ -17,6 +17,12 @@ export class ArtistComponent implements OnInit {
   constructor(private artistService: ArtistService) {}
 
   ngOnInit() {
+    let userAgent = navigator.userAgent;
+    if(userAgent.toLowerCase().indexOf('mobile') < 0) {
+      console.log('desktop');
+    } else {
+      console.log('mobile');
+    }
     this.artistService.getArtistData()
     .then(data => {
       this.artists = data.artists.items;

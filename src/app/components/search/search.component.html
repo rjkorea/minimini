@@ -23,10 +23,10 @@
   </div>
 
   <ul class="paging" *ngIf="searchData.length === items.length">
-    <li class="paging_button" (click)="prevPageMore(curPage)" *ngIf="curPage > 100">&lt;&lt;</li>
-    <li *ngIf="prev" class="paging_button bold" (click)="prevPageClick(prev)">&lt;</li>
+    <li (click)="prevPageMore(curPage)" *ngIf="curPage > 100"><img src="assets/imgs/db_arrow_left.png"></li>
+    <li *ngIf="prev" (click)="prevPageClick(prev)"><img src="assets/imgs/arrow_left.png"></li>
     <li class="curpage">{{curPage}} of {{total}}</li>
-    <li *ngIf="next" class="paging_button bold" (click)="nextPageClick(next)">&gt;</li>
-    <li *ngIf="next" class="paging_button" (click)="nextPageMore(curPage)">&gt;&gt;</li>
+    <li *ngIf="next" (click)="nextPageClick(next)"><img src="assets/imgs/arrow_right.png"></li>
+    <li *ngIf="next" (click)="nextPageMore(curPage)"><img src="assets/imgs/db_arrow_right.png"></li>
   </ul>
 </div>
