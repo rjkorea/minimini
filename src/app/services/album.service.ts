@@ -8,7 +8,7 @@ export class AlbumService {
 
   constructor(private http: Http) {}
 
-  getAlbumOnly(params) {
+  public getAlbumOnly(params) {
     let url: string = `https://api.spotify.com/v1/albums/${params.id}?market=ES`;
     return this.http
            .get(url)
@@ -17,7 +17,7 @@ export class AlbumService {
            .catch();
   }
 
-  getAlbumData() {
+  public getAlbumData() {
     let url: string = "https://api.spotify.com/v1/search?type=album&q=rock&offset=20&limit=50";
     return this.http
                .get(url)

@@ -24,7 +24,7 @@ export class ArtistComponent implements OnInit {
     });
   }
 
-  onScroll($event: Event): void {
+  public onScroll($event: Event): void {
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       let that = this;
       if(this.counter < this.artists.length) {

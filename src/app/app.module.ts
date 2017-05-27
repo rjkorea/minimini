@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { APP_CONFIG, AppConfig } from './app.config';
 
@@ -34,7 +35,7 @@ import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.co
     HttpModule,
     AppRoutingModule
   ],
-  providers: [{ provide: APP_CONFIG, useValue: AppConfig }],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

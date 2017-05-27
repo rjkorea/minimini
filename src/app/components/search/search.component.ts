@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit{
 
   ngOnInit() {}
 
-  onScroll($event: Event): void {
+  public onScroll($event: Event): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       let that = this;
       if(this.counter < this.searchData.length) {
@@ -46,7 +46,7 @@ export class SearchComponent implements OnInit{
     }
   }
 
-  insertData(data: any): void {
+  public insertData(data: any): void {
     let artist = data.artists;
     this.searchData = artist.items;
     this.show = true;
@@ -58,31 +58,31 @@ export class SearchComponent implements OnInit{
     this.counter = 5;
   }
 
-  search(word: string): void {
+  public search(word: string): void {
     this.inputWord = word;
     this.searchService.getSearchData(word)
       .then(data => this.insertData(data));
   }
 
-  nextPageClick(url: string): void {
+  public nextPageClick(url: string): void {
     window.scrollTo(0, 0);
     this.searchService.getNextData(url)
       .then(data => this.insertData(data));
   }
 
-  nextPageMore(offset: number): void {
+  public nextPageMore(offset: number): void {
     window.scrollTo(0, 0);
     this.searchService.getNextMore(offset)
       .then(data => this.insertData(data));
   }
 
-  prevPageClick(url: string): void {
+  public prevPageClick(url: string): void {
     window.scrollTo(0, 0);
     this.searchService.getPrevData(url)
       .then(data => this.insertData(data));
   }
 
-  prevPageMore(offset: number): void {
+  public prevPageMore(offset: number): void {
     window.scrollTo(0, 0);
     this.searchService.getPrevMore(offset)
       .then(data => this.insertData(data));

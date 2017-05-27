@@ -11,7 +11,7 @@ import { AlbumService } from '../../services/album.service';
 })
 export class AlbumDetailComponent implements OnInit {
   private show: boolean = false;
-  private album;
+  private album: any[];
 
   constructor(
     private albumService: AlbumService,

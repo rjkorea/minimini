@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 export class ArtistService {
 
   constructor(private http: Http) {}
-  getArtistOnly(params) {
+  public getArtistOnly(params) {
     let url: string = `https://api.spotify.com/v1/artists/${params.id}?market=ES`;
     return this.http
            .get(url)
@@ -16,7 +16,7 @@ export class ArtistService {
            .catch();
   }
 
-  getArtistData() {
+  public getArtistData() {
     let url: string = "https://api.spotify.com/v1/search?type=artist&q=rock&offset=20&limit=50";
 
     return this.http

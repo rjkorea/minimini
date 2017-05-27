@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions } from '@angular/http';
 
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class SearchService {
   
   constructor(private http: Http) {}
 
-  getSearchData(word: string) {
+  public getSearchData(word: string) {
     let url: string = `https://api.spotify.com/v1/search/?q=${word}&type=track,artist&market=US`;
     return this.http
            .get(url)
@@ -15,21 +17,21 @@ export class SearchService {
            .catch();
   }
 
-  getNextData(url: string) {
+  public getNextData(url: string) {
     return this.http
            .get(url)
            .toPromise()
            .then(response => response.json());
   }
 
-  getPrevData(url: string) {
+  public getPrevData(url: string) {
     return this.http
            .get(url)
            .toPromise()
            .then(response => response.json());
   }
 
-  getNextMore(offset: number) {
+  public getNextMore(offset: number) {
     let count: number = offset + 100;
     let uri: string = `https://api.spotify.com/v1/search?query=m&type=artist&market=US&offset=${count}&limit=20`;
     
@@ -39,7 +41,7 @@ export class SearchService {
            .then(response => response.json());
   }
 
-  getPrevMore(offset: number) {
+  public getPrevMore(offset: number) {
     let count: number = offset - 100;
     let uri: string = `https://api.spotify.com/v1/search?query=m&type=artist&market=US&offset=${count}&limit=20`;
     

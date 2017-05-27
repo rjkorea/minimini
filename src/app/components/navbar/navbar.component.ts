@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit{
 
   ngOnInit() {}
 
-  myFunction() {
+  public myFunction(): void {
     let x = document.getElementById('myTopnav');
     if (x.className === 'topnav') {
       x.className += ' responsive';

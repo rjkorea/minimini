@@ -8,7 +8,7 @@ export class LoginService {
 
   constructor(private http: Http) {}
 
-  getAuthData() {
+  public getAuthData() {
     let clientID = '';
     let secret = '';
     let REDIRECT_URI = 'http://localhost:4200/album';
