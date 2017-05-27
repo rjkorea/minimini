@@ -8,7 +8,7 @@
 <ng-container *ngIf="show">
   <div class="toggle_searchbar">
     <h3 class="search_title">SEARCH</h3>
-    <input type="text" id="searchbox" [ngModel]="inputWord"/>
+    <input type="text" id="searchbox" #searchBox [ngModel]="inputWord" (keyup.enter)="search(searchBox.value)"/>
     <h4><span class="search_total">{{total}}</span> search result about <span class="search_word">{{inputWord}}</span></h4>
   </div>
   <div (window:scroll)="onScroll($event)">  
