@@ -1,32 +1,38 @@
-<div class="search_group" *ngIf="!show">
+<ng-container *ngIf="!show">
+  <div class="search_group">
   <h3>MINIMINI MUSIC : )</h3>
   <input type="text" #searchBox (keyup.enter)="search(searchBox.value)" placeholder="SEARCH"/>
-</div>
+  </div>
+</ng-container>
 
-<div class="toggle_searchbar" *ngIf="show">
-  <h3 class="search_title">SEARCH</h3>
-  <input type="text" id="searchbox" [ngModel]="inputWord"/>
-  <h4><span class="search_total">{{total}}</span> search result about <span class="search_word">{{inputWord}}</span></h4>
-</div>
-
-<div *ngIf="show" (window:scroll)="onScroll($event)">  
-  <div *ngFor="let data of items" class="search_list">
-    <img src="{{data.images[0].url}}" *ngIf="data.images.length">
-    <div class="data_text">
-      Artist : {{data.name}}<br>
-      Popularity : {{data.popularity}}<br>
-      Genres : <span class="" *ngFor="let genre of data.genres.slice(0, 5)">{{genre}}</span>  
+<ng-container *ngIf="show">
+  <div class="toggle_searchbar">
+    <h3 class="search_title">SEARCH</h3>
+    <input type="text" id="searchbox" [ngModel]="inputWord"/>
+    <h4><span class="search_total">{{total}}</span> search result about <span class="search_word">{{inputWord}}</span></h4>
+  </div>
+  <div (window:scroll)="onScroll($event)">  
+    <div *ngFor="let data of items" class="search_list">
+      <img src="{{data.images[0].url}}" *ngIf="data.images.length">
+      <div class="data_text">
+        Artist : {{data.name}}<br>
+        Popularity : {{data.popularity}}<br>
+        Genres : <span class="" *ngFor="let genre of data.genres.slice(0, 5)">{{genre}}</span>  
+      </div>
     </div>
+    <div class="loader_box_two">
+      <div class="loader_two" *ngIf="loader">Loading...</div>
+    </div>
+    <ng-container *ngIf="userAgentCheck">
+    <ul class="paging" *ngIf="searchData.length === items.length">
+      <li (click)="prevPageMore(curPage)" *ngIf="curPage > 100"><img src="assets/imgs/db_arrow_left.png"></li>
+      <li *ngIf="prev" (click)="prevPageClick(prev)"><img src="assets/imgs/arrow_left.png"></li>
+      <li class="curpage">{{curPage}} of {{total}}</li>
+      <li *ngIf="next" (click)="nextPageClick(next)"><img src="assets/imgs/arrow_right.png"></li>
+      <li *ngIf="next" (click)="nextPageMore(curPage)"><img src="assets/imgs/db_arrow_right.png"></li>
+    </ul>
+    </ng-container>
   </div>
-  <div class="loader_box_two">
-    <div class="loader_two" *ngIf="loader">Loading...</div>
-  </div>
+</ng-container>
 
-  <ul class="paging" *ngIf="searchData.length === items.length">
-    <li (click)="prevPageMore(curPage)" *ngIf="curPage > 100"><img src="assets/imgs/db_arrow_left.png"></li>
-    <li *ngIf="prev" (click)="prevPageClick(prev)"><img src="assets/imgs/arrow_left.png"></li>
-    <li class="curpage">{{curPage}} of {{total}}</li>
-    <li *ngIf="next" (click)="nextPageClick(next)"><img src="assets/imgs/arrow_right.png"></li>
-    <li *ngIf="next" (click)="nextPageMore(curPage)"><img src="assets/imgs/db_arrow_right.png"></li>
-  </ul>
-</div>
+

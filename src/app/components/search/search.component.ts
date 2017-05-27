@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit{
   private inputWord: string = '';
   private loader: boolean = true;
   private that = this;
+  private userAgentCheck: boolean = false;
 
   constructor(
     private searchService: SearchService
@@ -30,8 +31,10 @@ export class SearchComponent implements OnInit{
   ngOnInit() {
     let userAgent = navigator.userAgent;
     if(userAgent.toLowerCase().indexOf('mobile') < 0) {
+      this.userAgentCheck = true;
       console.log('desktop');
     } else {console.log(userAgent)
+      this.userAgentCheck = false;
       console.log('mobile');
     }
   }

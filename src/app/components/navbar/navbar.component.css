@@ -34,6 +34,11 @@
     float: right;
     display: block;
   }
+
+  .topnav a:hover {
+    background-color: #3590E6;;
+    color: white;
+  }
 }
 
 @media screen and (max-width: 375px) {
