@@ -27,7 +27,14 @@ export class SearchComponent implements OnInit{
     private searchService: SearchService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    let userAgent = navigator.userAgent;
+    if(userAgent.toLowerCase().indexOf('mobile') < 0) {
+      console.log('desktop');
+    } else {console.log(userAgent)
+      console.log('mobile');
+    }
+  }
 
   public onScroll($event: Event): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {

@@ -9,7 +9,14 @@ export class NavbarComponent implements OnInit{
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    let userAgent = navigator.userAgent;
+    if(userAgent.toLowerCase().indexOf('mobile') < 0) {
+      console.log('desktop');
+    } else {
+      console.log('mobile');
+    }
+  }
 
   public myFunction(): void {
     let x = document.getElementById('myTopnav');
