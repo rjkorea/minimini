@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AlbumDetailComponent } from './components/album/album-detail.component';
 import { ArtistDetailComponent } from './components/artist/artist-detail.component';
 import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { SearchResultListComponent } from './components/search/search-result-list/search-result-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.co
     LoginComponent,
     AlbumDetailComponent,
     ArtistDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchResultListComponent
   ],
   imports: [
     BrowserModule,
